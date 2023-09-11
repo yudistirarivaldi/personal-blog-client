@@ -1,22 +1,30 @@
-export default function Post() {
+import { format } from "date-fns";
+import { Link } from "react-router-dom";
+
+export default function Post({
+  title,
+  summary,
+  cover,
+  author,
+  publication,
+  id
+}) {
   return (
     <div className="post">
       <div className="image">
-        <img
-          src="https://www.hostinger.co.id/tutorial/wp-content/uploads/sites/11/2019/03/apa-itu-blog-dan-pengertian-blog.png"
-          alt=""
-        />
+        <Link to={`/blog/${id}`}>
+          <img src={"http://localhost:4000/" + cover} alt="" />
+        </Link>
       </div>
       <div className="texts">
-        <h2>Testing</h2>
+        <Link to={`/blog/${id}`}>
+          <h2>{title}</h2>
+        </Link>
         <p className="info">
-          <a className="author">Yudistira Rivaldi</a>
-          <time>2023-01-06 16:45</time>
+          <a className="author">{author}</a>
+          <time>{format(new Date(publication), "MMM d, yyyy")}</time>
         </p>
-        <p className="summary">
-          Ini adalah bloggg adawdad adad Ini adalah bloggg adawdad adadIni
-          adalah bloggg adawdad adad Ini adalah bloggg adawdad adad Ini
-        </p>
+        <p className="summary">{summary}</p>
       </div>
     </div>
   );
