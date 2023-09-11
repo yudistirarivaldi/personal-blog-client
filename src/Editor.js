@@ -1,4 +1,5 @@
 import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 export default function Editor({ value, onChange }) {
   const modules = {
@@ -17,13 +18,13 @@ export default function Editor({ value, onChange }) {
   };
 
   return (
-    <div className="content">
+    
       <ReactQuill
         value={value}
         theme={"snow"}
         onChange={onChange}
         modules={modules}
       />
-    </div>
+    
   );
 }

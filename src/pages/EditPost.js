@@ -46,6 +46,8 @@ export default function EditPost() {
     return <Navigate to={"/blog/" + id} />;
   }
 
+  console.log(content);
+
   return (
     <form onSubmit={updatePost}>
       <input
